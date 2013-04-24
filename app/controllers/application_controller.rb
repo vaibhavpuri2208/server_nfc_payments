@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   end
 
   def session_check
-    if session[:cust_id].nil?
-     redirect_to login_url
-     flash[:notice] = "Please login to view your account!"
-    else
-      true
-    end 
+  #  if session[:cust_id].nil?
+  #  redirect_to login_url
+  # flash[:notice] = "Please login to view your account!"
+  #  else
+  #    true
+  #  end 
   end
 
   def current_customer
