@@ -2,12 +2,6 @@ class CreditsController < ApplicationController
  
   before_filter :credit_card_exists
 
-  def credit_card_exits
-    if !Credit_card.find_by_customer_id current_customer.id
-      redirect_to new_creditcard_url
-      flash[:notice] = "Add Credit Card"
-    end
-  end
 
   def index
     @credits = Credit.all
@@ -109,7 +103,7 @@ class CreditsController < ApplicationController
     :amount => amount,
     :credit_card => {
       :number => @current_card.card_number,
-      :cvv => @current_card.card_number.cvv,
+      :cvv => @current_card.cvv,
       :expiration_month => @current_card.expiration_month,
       :expiration_year => @current_card.expiration_year
     },
@@ -126,6 +120,14 @@ class CreditsController < ApplicationController
 
   end
 
+  private
+
+   def credit_card_exists
+    if !Creditcard.find_by_customer_id current_customer.id
+      redirect_to new_creditcard_url
+      flash[:notice] = "Add Credit Card"
+    end
+  end
 
 
 

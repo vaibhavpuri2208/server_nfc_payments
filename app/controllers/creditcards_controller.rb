@@ -1,7 +1,7 @@
 class CreditcardsController < ApplicationController
 
   def index
-    @creditcards = Creditcard.all
+    @creditcards = Creditcard.where(:customer_id=>session[:cust_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,7 +36,7 @@ class CreditcardsController < ApplicationController
     @creditcard.customer_id = session[:cust_id]
     respond_to do |format|
       if @creditcard.save
-        format.html { redirect_to @creditcard, notice: 'Creditcard was successfully created.' }
+        format.html { redirect_to credits_url, notice: 'Creditcard was successfully created.' }
         format.json { render json: @creditcard, status: :created, location: @creditcard }
       else
         format.html { render action: "new" }
