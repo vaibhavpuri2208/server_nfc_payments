@@ -1,7 +1,8 @@
 class CreditsController < ApplicationController
  
-  before_filter :credit_card_exists
+   before_filter :session_check
 
+  before_filter :credit_card_exists
 
   def index
     @credits = Credit.all
@@ -15,7 +16,7 @@ class CreditsController < ApplicationController
   # GET /credits/1
   # GET /credits/1.json
   def show
-    @credit = Credit.find(params[:id])
+    @credit = Credit.find_by_customer_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +28,6 @@ class CreditsController < ApplicationController
   # GET /credits/new.json
   def new
     @credit = Credit.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @credit }
@@ -68,6 +68,21 @@ class CreditsController < ApplicationController
         format.json { render json: @credit.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def reduce_credit
+    amount = params[:amount]
+    customer_id = params[:customer_id]
+    @credit = Credit.find_by_customer_id customer_id
+    if @credit.amount - amount > 0
+      @credit.amount -=amount
+      @credit.update
+    end  
+
+  respond_to do |format|
+    format.html {redirect_to home_page_url, notice: 'Account was debited'}
+    format.json {render json: @credit.amount}
+
   end
 
   def update

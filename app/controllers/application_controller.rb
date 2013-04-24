@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def session_check
     if session[:cust_id].nil?
-     redirect_to new_session_url
+     redirect_to login_url
      flash[:notice] = "Please login to view your account!"
     else
       true

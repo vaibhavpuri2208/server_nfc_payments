@@ -1,5 +1,7 @@
 class CreditcardsController < ApplicationController
 
+  before_filter :session_check
+
   def index
     @creditcards = Creditcard.where(:customer_id=>session[:cust_id])
 
