@@ -1,13 +1,10 @@
 <% if @creditcard.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@creditcard.errors.count, "error") %> prohibited this creditcard from being saved:</h2>
-
-    <ul>
+  <section id="error_explanation">
+    <h2 class="a_center"><%= pluralize(@creditcard.errors.count, "error") %></h2>
     <% @creditcard.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <p class=""><%= msg %></p>
     <% end %>
-    </ul>
-  </div>
+  </section>
 <% end %>
 
 <%= form_for(@creditcard, :html => { :class => "form-5 form-vert clearfix" }) do |f| %>

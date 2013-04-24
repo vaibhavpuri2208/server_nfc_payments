@@ -1,13 +1,10 @@
 <% if @customer.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-    <ul>
+  <section id="error_explanation">
+    <h2 class="a_center"><%= pluralize(@customer.errors.count, "error") %></h2>
     <% @customer.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <p><%= msg %></p>
     <% end %>
-    </ul>
-  </div>
+  </section>
 <% end %>
 
 <%= form_for(@customer, :html => { :class => "form-5 clearfix" }) do |f| %>

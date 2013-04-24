@@ -47,6 +47,12 @@ a {
   margin: 20px auto -20px;
 }
 
+#error_explanation { width: 80%; margin: 25px auto 0; color: #F1C40F !important; font-weight: 400; }
+#error_explanation p { margin: 5px 0; }
+#error_explanation p:before { content: "- " }
+
+.a_center { text-align: center; }
+
 .b_fixed {
   position: fixed;
   width: 100%;
