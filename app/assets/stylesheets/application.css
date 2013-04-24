@@ -84,7 +84,7 @@ a {
 /* Login */
 .form-5 {
   max-width: 280px;
-  margin: 60px auto 30px;
+  margin: 30px auto;
   position: relative;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1), 0 3px 2px rgba(0,0,0,0.1);
@@ -322,12 +322,14 @@ a {
     float: none;
     border-radius: 5px 5px 0 0;
     border: 1px solid #fff;
+    background: #fff;
     /* border-right: none; */
 }
 
 .form-vert button {
   width: 100%;
-  height: 60px;
+  height: 60px !important;
+  line-height: 60px;
   float: none;
   border-radius: 0 0 5px 5px;
   border-left: none;
@@ -344,4 +346,15 @@ a {
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
     -webkit-backface-visibility: hidden;
+}
+.form-vert button:hover span,
+.form-vert button:focus span {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
 }
