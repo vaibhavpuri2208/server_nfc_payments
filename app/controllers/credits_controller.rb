@@ -1,6 +1,14 @@
 class CreditsController < ApplicationController
-  # GET /credits
-  # GET /credits.json
+ 
+  before_filter :credit_card_exists
+
+  def credit_card_exits
+    if !Credit_card.find_by_customer_id current_customer.id
+      redirect_to new_creditcard_url
+      flash[:notice] = "Add Credit Card"
+    end
+  end
+
   def index
     @credits = Credit.all
 
@@ -95,9 +103,8 @@ class CreditsController < ApplicationController
   end
 
   def authorise_amount amount
-    
+    @id = current_customer.id
     @current_card = Creditcard.find_by_customer_id current_customer.id
-    pry.binding
     result = Braintree::Transaction.sale(
     :amount => amount,
     :credit_card => {

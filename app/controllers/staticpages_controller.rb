@@ -1,7 +1,8 @@
 class StaticpagesController < ApplicationController
 
   def home
-    #do nothing
+    redirect_to login_url
+
   end
 
 
