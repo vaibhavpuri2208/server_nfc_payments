@@ -34,4 +34,10 @@ TnwHackathon::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Braintree::Configuration.environment = :sandbox
+  Braintree::Configuration.merchant_id = "QuickStart_Merchant"
+  Braintree::Configuration.public_key = "QuickStart_Public"
+  Braintree::Configuration.private_key = "QuickStart_Private"
+
 end

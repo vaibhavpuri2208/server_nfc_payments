@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Card number:</b>
+  <%= @creditcard.card_number %>
+</p>
+
+<p>
+  <b>Card holder name:</b>
+  <%= @creditcard.card_holder_name %>
+</p>
+
+<p>
+  <b>Expiration date:</b>
+  <%= @creditcard.expiration_date %>
+</p>
+
+<p>
+  <b>Cvv:</b>
+  <%= @creditcard.cvv %>
+</p>
+
+
+<%= link_to 'Edit', edit_creditcard_path(@creditcard) %> |
+<%= link_to 'Back', creditcards_path %>
