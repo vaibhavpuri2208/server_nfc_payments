@@ -1,8 +1,8 @@
 class CreditsController < ApplicationController
  
-   before_filter :session_check
+ #  before_filter :session_check
 
-  before_filter :credit_card_exists
+ # before_filter :credit_card_exists
 
   def index
     @credits = Credit.all
@@ -85,7 +85,7 @@ class CreditsController < ApplicationController
 
     end
   end
-  
+
   def update
     @credit = Credit.find(params[:id])
 
