@@ -33,7 +33,7 @@ class CreditcardsController < ApplicationController
 
   def create
     @creditcard = Creditcard.new(params[:creditcard])
-
+    @creditcard.customer_id = session[:cust_id]
     respond_to do |format|
       if @creditcard.save
         format.html { redirect_to @creditcard, notice: 'Creditcard was successfully created.' }

@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     end 
   end
 
+  def current_customer
+    Customer.find_by_id(session[:cust_id])
+  end
+
 end

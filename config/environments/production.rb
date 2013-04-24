@@ -62,8 +62,9 @@ TnwHackathon::Application.configure do
   config.active_support.deprecation = :notify
 
 
-  Braintree::Configuration.environment = :sandbox
-  Braintree::Configuration.merchant_id = "QuickStart_Merchant"
-  Braintree::Configuration.public_key = "QuickStart_Public"
-  Braintree::Configuration.private_key = "QuickStart_Private"  
+ 
+Braintree::Configuration.environment = :sandbox
+Braintree::Configuration.merchant_id = "kzqg3h9t4wt35yvt"
+Braintree::Configuration.public_key = "4xrx7xf3cbxx85x8"
+Braintree::Configuration.private_key = "2c54cce38904fb119136f44a9b4c6a7a"
 end

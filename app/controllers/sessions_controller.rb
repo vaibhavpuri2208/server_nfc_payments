@@ -13,11 +13,12 @@ class SessionsController < ApplicationController
       end
     end
 
+    redirect_to credits_url
     if !current_customer || !autenticate_password
       call_exception
-      redirect_to new_session_url
+      redirect_to login_url
+  
     end
-
 
   end
 
@@ -31,14 +32,14 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:cust_id] = nil
+
+    redirect_to home_page_url
   end
 
+
   def new
-
     #no logic to be added. Simply renders the login page
-
-
-
   end
 
 end

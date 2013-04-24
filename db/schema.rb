@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424132452) do
+ActiveRecord::Schema.define(:version => 20130424154451) do
 
   create_table "creditcards", :force => true do |t|
     t.integer  "card_number"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20130424132452) do
     t.integer  "expiration_year"
     t.string   "billing_address"
     t.integer  "customer_id"
+  end
+
+  create_table "credits", :force => true do |t|
+    t.integer  "amount"
+    t.integer  "customer_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "customers", :force => true do |t|
