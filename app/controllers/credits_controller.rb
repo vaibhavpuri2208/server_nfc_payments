@@ -76,7 +76,7 @@ class CreditsController < ApplicationController
     @credit = Credit.find_by_customer_id customer_id
     if @credit.amount - amount > 0
       @credit.amount -= amount
-      @credit.update
+      @credit.save
     end  
 
     respond_to do |format|
