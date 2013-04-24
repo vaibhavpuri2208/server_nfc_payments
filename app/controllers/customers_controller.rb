@@ -36,9 +36,9 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(params[:customer])
-
     respond_to do |format|
       if @customer.save
+        session[:cust_id] = @customer.id
         format.html { redirect_to new_creditcard_url, notice: 'Customer was successfully created.' }
         format.json { render json: @customer, status: :created, location: @customer }
       else
@@ -46,6 +46,8 @@ class CustomersController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+  session[:cust_id] = @customer.id
+
   end
 
   def update

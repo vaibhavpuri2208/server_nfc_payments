@@ -13,10 +13,11 @@ class SessionsController < ApplicationController
       end
     end
 
-    redirect_to credits_url
     if !current_customer || !autenticate_password
       call_exception
       redirect_to login_url
+    else
+      redirect_to credits_url
   
     end
 
