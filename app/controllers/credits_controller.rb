@@ -74,7 +74,7 @@ class CreditsController < ApplicationController
     amount = params[:amount]
     customer_id = params[:customer_id]
     @credit = Credit.find_by_customer_id customer_id
-    if @credit.amount - amount > 0
+    if @credit.amount - amount.to_i > 0
       @credit.amount -=amount
       @credit.update
     end  
@@ -139,10 +139,10 @@ class CreditsController < ApplicationController
   private
 
    def credit_card_exists
-    if !Creditcard.find_by_customer_id current_customer.id
-      redirect_to new_creditcard_url
-      flash[:notice] = "Add Credit Card"
-    end
+    #if !Creditcard.find_by_customer_id current_customer.id
+     # redirect_to new_creditcard_url
+      #flash[:notice] = "Add Credit Card"
+    #end
   end
 
 
