@@ -71,11 +71,11 @@ class CreditsController < ApplicationController
   end
 
   def reduce_credit
-    amount = params[:amount]
+    amount = params[:amount].to_i
     customer_id = params[:customer_id]
     @credit = Credit.find_by_customer_id customer_id
-    if @credit.amount - amount.to_i > 0
-      @credit.amount -=amount
+    if @credit.amount - amount > 0
+      @credit.amount -= amount
       @credit.update
     end  
 
