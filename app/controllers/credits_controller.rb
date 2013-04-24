@@ -79,12 +79,13 @@ class CreditsController < ApplicationController
       @credit.update
     end  
 
-  respond_to do |format|
+    respond_to do |format|
     format.html {redirect_to home_page_url, notice: 'Account was debited'}
     format.json {render json: @credit.amount}
 
+    end
   end
-
+  
   def update
     @credit = Credit.find(params[:id])
 
