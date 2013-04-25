@@ -1,2 +1,20 @@
-<b>Customer Name</b>
-<%= current_customer.name%>
+<% if @customer.errors.any? %>
+  <section id="error_explanation">
+    <h2 class="a_center"><%= pluralize(@customer.errors.count, "error") %></h2>
+    <% @customer.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </section>
+<% end %>
+
+<%= form_for(@customer, :html => { :class => "form-5 clearfix" }, :remote=>true) do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: "First Name" %>
+    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.password_field :password_digest, placeholder: "Password" %>
+  </p>
+  <%= button_tag(:type => "submit", class: "big_submit") do %>
+    <i class="icon-arrow-right"></i>
+    <span>Update</span>
+  <% end %>
+<% end %>

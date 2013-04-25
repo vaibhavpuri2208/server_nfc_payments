@@ -5,9 +5,10 @@ class CreditsController < ApplicationController
  # before_filter :credit_card_exists
 
   def index
-    @credit = Credit.first #Credit.find_by_customer_id current_customer.id
+    @credit = Credit.find_by_customer_id current_customer.id
     @new_credit = Credit.new
     @creditcard = current_customer.creditcard
+    @customer = current_customer
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @credits }
