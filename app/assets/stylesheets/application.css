@@ -329,6 +329,7 @@ a {
     border-radius: 5px 5px 0 0;
     border: 1px solid #fff;
     background: #fff;
+    padding-bottom: 0 !important;
     /* border-right: none; */
 }
 
