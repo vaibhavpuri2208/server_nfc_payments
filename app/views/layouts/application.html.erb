@@ -7,30 +7,26 @@
 		<title>NFC Wallet</title>
 		<meta name="description" content="Sign up, put credits and go to the event" />
 		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
+		<%= javascript_include_tag "modernizr.custom.js" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-	  <p><%= flash[:notice]%></p>
+	  <!-- <p><%= flash[:notice]%></p> -->
 	  <div class="container">
-		  <header class="logo">
-		  <%if session[:cust_id]%> 
-        <%= link_to(image_tag("logo1.png"),credits_url)%> 
-		  <%else%>
-        <%= link_to(image_tag("logo1.png"),home_page_url) %>
-      <%end%>
+  	  <%if !session[:cust_id]%> 
+		    <header class="logo">
+          <%= link_to(image_tag("logo1.png"),home_page_url) %>
+  		  </header>
+  		<%end%>
 
-
-
-
-		  </header>
-
-      
-      <% if session[:cust_id] %>
-        <%= link_to 'Logout', signout_url %>
-      <% end %>
       <%= yield %>
   
 	  </div>
+	  <%= javascript_include_tag "application" %>
+	  <script>
+			$(function() {
+				Boxlayout.init();
+			});
+		</script>
   </body>
 </html>
