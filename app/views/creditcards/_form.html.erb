@@ -17,10 +17,8 @@
 
     <%= f.text_field :cvv, :size => 3, placeholder: "CVV" %>
 
-  <div class="field">
-    <%= f.label :billing_address, 'Billing Address' %><br />
-    <%= f.text_area :billing_address, :size =>"22x5" %>
-  </div>
+    <%= f.text_area :billing_address, :size =>"22x5", placeholder: "Billing Address" %>
+  </p>
 
   <%= button_tag(:type => "submit") do %>
     <i class="icon-arrow-right"></i>
