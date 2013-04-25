@@ -12,16 +12,13 @@
     <td>  <%= link_to 'Add Credit', new_credit_path %></td>
 
 
-<!--<td><%= link_to 'Show', credit %></td>
-    <td><%= link_to 'Edit', edit_credit_path(credit) %></td>
-    <td><%= link_to 'Destroy', credit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    -->
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<%= render 'add_credit' %>
 <%= render 'customer_details' %>
 <%= render 'card_details' %>
 

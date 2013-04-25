@@ -6,10 +6,12 @@ class CreditsController < ApplicationController
 
   def index
     @credits = Credit.all
+    @new_credit = Credit.new
     @creditcard = current_customer.creditcard
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @credits }
+      format.js 
     end
   end
 
@@ -54,7 +56,7 @@ class CreditsController < ApplicationController
       @credit = current_credit
     else
       @credit.customer_id = session[:cust_id]
-      @credit.save
+    #  @credit.save
     end
 
 
