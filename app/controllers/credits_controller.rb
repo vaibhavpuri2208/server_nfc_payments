@@ -6,7 +6,7 @@ class CreditsController < ApplicationController
 
   def index
     @credits = Credit.all
-
+    @creditcard = current_customer.creditcard
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @credits }
@@ -43,7 +43,8 @@ class CreditsController < ApplicationController
   # POST /credits.json
   def create
     @credit = Credit.new(params[:credit])
-
+    
+    @credit.amount = 0 if params[:credit][:amount].empty?
     current_credit = Credit.find_by_customer_id(session[:cust_id])
     
     authorise_amount @credit.amount

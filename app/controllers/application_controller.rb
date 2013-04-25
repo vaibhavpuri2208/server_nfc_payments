@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :current_customer
+
   def who_is email
     Customer.find_by_email(email)
   end
