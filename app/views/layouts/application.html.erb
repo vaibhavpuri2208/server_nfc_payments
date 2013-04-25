@@ -11,6 +11,7 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
+	  <p><%= flash[:notice]%></p>
 	  <div class="container">
 		  <header class="logo">
 		    <a href="/">
@@ -18,7 +19,7 @@
 		    </a>
 		  </header>
 
-      <p style="color:#f37220;margin:5px;font-weight:bold;"><%= flash[:notice]%></p>
+      
       <% if session[:cust_id] %>
         <%= link_to 'Logout', signout_url %>
       <% end %>
