@@ -216,7 +216,7 @@ a {
     line-height: 102px; /* Same as height */
 }
 .form-5 button.big_submit {
-    height: 202px;
+    height: 152px;
 }
 
 .form-5 button i {
@@ -365,9 +365,10 @@ a {
     transform: none;
 }
 
-
-
-
+.form-vert button i {
+  top: -24px;
+  font-size: 48px;
+}
 
 
 
