@@ -14,9 +14,15 @@
 	  <p><%= flash[:notice]%></p>
 	  <div class="container">
 		  <header class="logo">
-		    <a href="/">
-		      <%= image_tag "logo1.png" %>
-		    </a>
+		  <%if session[:cust_id]%> 
+        <%= link_to(image_tag("logo1.png"),credits_url)%> 
+		  <%else%>
+        <%= link_to(image_tag("logo1.png"),home_page_url) %>
+      <%end%>
+
+
+
+
 		  </header>
 
       

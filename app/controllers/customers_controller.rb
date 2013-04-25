@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   
-  before_filter :session_check
+  before_filter :session_check, :only => :index
  
   
   def index
