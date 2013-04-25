@@ -5,7 +5,7 @@ class CreditsController < ApplicationController
  # before_filter :credit_card_exists
 
   def index
-    @credits = Credit.all
+    @credit = Credit.first #Credit.find_by_customer_id current_customer.id
     @new_credit = Credit.new
     @creditcard = current_customer.creditcard
     respond_to do |format|
