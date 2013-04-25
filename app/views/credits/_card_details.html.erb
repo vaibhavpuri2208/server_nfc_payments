@@ -1,0 +1,20 @@
+<%= form_for(@creditcard, :html => { :class => "form-5 form-vert clearfix" }, :remote=>true) do |f| %>
+  <p>
+    <%= f.text_field :card_holder_name, placeholder: "Card Holder Name" %>
+    <%= f.text_field :card_number, placeholder: "Card Number" %>
+ 
+    <%= f.text_field :expiration_month, :size => 2, placeholder: "Expiration Month" %>
+    <%= f.text_field :expiration_year, :size => 4, placeholder: "Expiration Year" %>
+
+    <%= f.text_field :cvv, :size => 3, placeholder: "CVV" %>
+
+  <div class="field">
+    <%= f.label :billing_address, 'Billing Address' %><br />
+    <%= f.text_area :billing_address, :size =>"22x5" %>
+  </div>
+
+  <%= button_tag(:type => "submit") do %>
+    <i class="icon-arrow-right"></i>
+    <span>Credit Card Info</span>
+  <% end %>
+<% end %>
