@@ -1,22 +1,21 @@
-<%= form_for(@new_credit, :remote=>true) do |f| %>
-  <% if @new_credit.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_credit.errors.count, "error") %> prohibited this credit from being saved:</h2>
+<% if @new_credit.errors.any? %>
+  <section id="error_explanation">
+    <h2><%= pluralize(@new_credit.errors.count, "error") %> prohibited this credit from being saved:</h2>
 
-      <ul>
-      <% @new_credit.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+    <ul>
+    <% @new_credit.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </section>
+<% end %>
+
+<%= form_for(@new_credit, :html => { :class => "form-5 form-vert clearfix" }) do |f| %>
+  <p>
+    <%= f.text_field :amount, placeholder: "Amount" %>
+  </p>
+  <%= button_tag(:type => "submit") do %>
+    <i class="icon-arrow-right"></i>
+    <span>Authorise & Add</span>
   <% end %>
-
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.number_field :amount %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Authorise & Add" %>
-  </div>
 <% end %>
